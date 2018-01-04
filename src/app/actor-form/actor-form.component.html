@@ -1,0 +1,60 @@
+<section @fadeInAnimation>
+  <ol class="breadcrumb">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/actor">Actors</a></li>
+      <li class="active">Manage Actors</li>
+  </ol>
+
+  <a class="btn btn-primary" routerLink="/actor">Return to Actors</a>
+
+  <h1>Manage Actor</h1>
+
+  <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+
+  <form novalidate (ngSubmit)="saveActor(actorForm)"  #actorForm="ngForm" class="form-horizontal">
+    <input [ngModel]="actor?.id" ngModel #actor_id="ngModel" type="hidden" name="id">
+    <div class="form-group">
+      <label for="firstName" class="col-sm-2 control-label">First Name</label>
+      <div class="col-sm-10">
+        <input [ngModel]="actor?.firstName" ngModel #firstName="ngModel" type="text" class="form-control" id="firstName" name="firstName" placeholder="e.g. Will" required minlength="2" maxlength="30">
+         <span *ngIf="formErrors.firstName" class="text-danger">
+          {{ formErrors.firstName }}
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName" class="col-sm-2 control-label">Last Name</label>
+      <div class="col-sm-10">
+        <input [ngModel]="actor?.lastName" ngModel #lastName="ngModel" type="text" class="form-control" id="lastName" name="lastName" placeholder="e.g. Smith" required minlength="2" maxlength="30" >
+        <span *ngIf="formErrors.lastName" class="text-danger">
+          {{ formErrors.lastName }}
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="activeSinceYear" class="col-sm-2 control-label">Active Since Year</label>
+      <div class="col-sm-10">
+        <input [ngModel]="actor?.activeSinceYear" ngModel #activeSinceYear="ngModel" type="text" class="form-control" id="activeSinceYear" name="activeSinceYear"  placeholder="e.g. 2000" pattern="\d+" >
+        <span *ngIf="formErrors.activeSinceYear" class="text-danger">
+          {{ formErrors.activeSinceYear }}
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="birthDate" class="col-sm-2 control-label">Birthday</label>
+      <div class="col-sm-10">
+        <input [ngModel]="actor?.birthDate" ngModel #birthDate="ngModel" type="text" class="form-control" id="birthDate" name="birthDate" placeholder="2017-01-01" pattern="(\d{4})-(\d{2})-(\d{2})">
+        <span *ngIf="formErrors.birthDate" class="text-danger">
+          {{ formErrors.birthDate }}
+        </span>
+      </div>
+    </div>
+     <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button [disabled]="!actorForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
+
+

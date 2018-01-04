@@ -15,6 +15,9 @@ import { DataService } from './data.service';
 import { DeleteConfirmComponent } from './delete-confirm/delete-confirm.component';
 import { MovieFormComponent } from './movie-form/movie-form.component';
 import { StatusMessageComponent } from './status-message/status-message.component';
+import { ActorComponent } from './actor/actor.component';
+import { ActorFormComponent } from './actor-form/actor-form.component';
+
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { StatusMessageComponent } from './status-message/status-message.componen
     HomeComponent,
     DeleteConfirmComponent,
     MovieFormComponent,
-    StatusMessageComponent
+    StatusMessageComponent,
+    ActorComponent,
+    ActorFormComponent
   ],
   imports: [
     BrowserModule,
