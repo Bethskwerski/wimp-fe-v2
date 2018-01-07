@@ -31,6 +31,7 @@
         <td class="text-center">
           <a class="btn btn-primary" [routerLink]="['/actor/edit/', actor.id]">Edit</a>&nbsp;
           <button (click)="deleteActor(actor.id)" class="btn btn-danger">Delete</button>
+          <a class="btn btn-primary" [routerLink]="['/actor/award/', actor.id]">Add an Award</a>&nbsp;
         </td>
       </tr>
     </tbody>

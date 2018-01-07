@@ -17,6 +17,7 @@ import { MovieFormComponent } from './movie-form/movie-form.component';
 import { StatusMessageComponent } from './status-message/status-message.component';
 import { ActorComponent } from './actor/actor.component';
 import { ActorFormComponent } from './actor-form/actor-form.component';
+import { AwardFormComponent } from './award-form/award-form.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ActorFormComponent } from './actor-form/actor-form.component';
     MovieFormComponent,
     StatusMessageComponent,
     ActorComponent,
-    ActorFormComponent
+    ActorFormComponent,
+    AwardFormComponent
   ],
   imports: [
     BrowserModule,

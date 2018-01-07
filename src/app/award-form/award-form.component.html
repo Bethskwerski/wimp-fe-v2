@@ -1,0 +1,49 @@
+<section @fadeInAnimation>
+  <ol class="breadcrumb">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/actor">Actors</a></li>
+      <li class="active">Manage Awards</li>
+  </ol>
+
+  <a class="btn btn-primary" routerLink="/actor">Return to Actors</a>
+
+  <h1>Manage Awards</h1>
+
+  <app-status-message [successMessage]="successMessage" [errorMessage]="errorMessage"></app-status-message>
+
+  <form novalidate (ngSubmit)="saveAward(awardForm)"  #awardForm="ngForm" class="form-horizontal">
+    <input [ngModel]="award?.id" ngModel #award_id="ngModel" type="hidden" name="id">
+    <div class="form-group">
+      <label for="title" class="col-sm-2 control-label">Title</label>
+      <div class="col-sm-10">
+        <input [ngModel]="award?.title" ngModel #title="ngModel" type="text" class="form-control" id="title" name="title" placeholder="e.g. Best Actor" required minlength="2" maxlength="30">
+         <span *ngIf="formErrors.title" class="text-danger">
+          {{ formErrors.title }}
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="organization" class="col-sm-2 control-label">Organization</label>
+      <div class="col-sm-10">
+        <input [ngModel]="award?.organization" ngModel #organization="ngModel" type="text" class="form-control" id="organization" name="organization" placeholder="e.g. Razzy" required minlength="2" maxlength="30" >
+        <span *ngIf="formErrors.organization" class="text-danger">
+          {{ formErrors.organization }}
+        </span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="year" class="col-sm-2 control-label">Year</label>
+      <div class="col-sm-10">
+        <input [ngModel]="award?.year" ngModel #year="ngModel" type="text" class="form-control" id="year" name="year"  placeholder="e.g. 2000" pattern="\d+" >
+        <span *ngIf="formErrors.year" class="text-danger">
+          {{ formErrors.year }}
+        </span>
+      </div>
+    </div>
+     <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button [disabled]="!awardForm.form.valid" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
